@@ -14,8 +14,8 @@ const TextInput = styled.TextInput`
   margin: 5px;
 `;
 
-export default () => {
-  const {value, setValue} = React.useState("");
+export default ({onSubmit}) => {
+  const [value, setValue] = React.useState("");
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS == "ios" ? "padding" : "height"}
@@ -24,6 +24,10 @@ export default () => {
       onChangeText={v => setValue(v)}
       value={value}
       placeholder="Add a new item"
+      onSubmitEditing={() => {
+        onSubmit(value);
+        setValue("");
+      }}
     />
   </KeyboardAvoidingView>
   )
