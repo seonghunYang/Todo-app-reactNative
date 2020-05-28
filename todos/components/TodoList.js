@@ -15,11 +15,19 @@ const Text = styled.Text`
   color: #444;
 `;
 
+const TouchableHighlight = styled.TouchableHighlight`
+`;
+
 function Item({item}) {
   return (
-    <ItemView>
-      <Text>{item.title}</Text>
-    </ItemView>
+    <TouchableHighlight
+      activeOpacity={0.6}
+      underlayColor="#DDDDDD"
+      onPress={() => {}}>
+      <ItemView>
+        <Text>{item.title}</Text>
+      </ItemView>
+    </TouchableHighlight>
   )
 }
 
