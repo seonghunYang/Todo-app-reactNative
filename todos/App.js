@@ -1,23 +1,23 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, SafeAreaView } from 'react-native';
 
 import Header from './components/Header';
 import TodoList from './components/TodoList';
 import TodoInput from './components/TodoInput';
 export default function App() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Header/>
       <TodoList />
       <TodoInput />
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#B2F7F6',
     alignItems: 'center',
     justifyContent: 'center',
   },
