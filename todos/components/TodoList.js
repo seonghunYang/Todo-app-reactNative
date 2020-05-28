@@ -20,12 +20,12 @@ const Text = styled.Text`
 const TouchableHighlight = styled.TouchableHighlight`
 `;
 
-function Item({item}) {
+function Item({ item, onToggle}) {
   return (
     <TouchableHighlight
       activeOpacity={0.6}
       underlayColor="#EFF7F6"
-      onPress={() => {}}>
+      onPress={() => {onToggle(item.id)}}>
       <ItemView>
         {item.done && <Ionicons name="ios-checkmark-circle-outline" size={24} color="#aaa" />}
         {!item.done && <Ionicons name="ios-radio-button-off" size={24} color="black" />}
@@ -41,11 +41,11 @@ const FlatList = styled.FlatList`
   width :100% ;
 `;
 
-export default ({data}) => {
+export default ({data, onToggle}) => {
   return (
     <FlatList
     data={data}
-    renderItem={({ item }) => <Item item={item} />}
+    renderItem={({ item }) => <Item item={item} onToggle={onToggle} />}
     keyExtractor={item => item.id}
   />
 
